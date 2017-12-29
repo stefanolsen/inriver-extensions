@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26730.15
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InRiver.TableLookupExtension", "InRiver.TableLookupExtension\InRiver.TableLookupExtension.csproj", "{99730F4E-9FBB-4A0D-B98E-0FDD9640411D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InRiver.TableLookup", "InRiver.TableLookup\InRiver.TableLookup.csproj", "{99730F4E-9FBB-4A0D-B98E-0FDD9640411D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
