@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InRiver.TableLookup", "InRi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InRiver.TableLookup.Tests", "InRiver.TableLookup.Tests\InRiver.TableLookup.Tests.csproj", "{DBEA4483-0E04-41D9-AD4E-7E61268E76D7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InRiver.ImageAnalyzer", "InRiver.ImageAnalyzer\InRiver.ImageAnalyzer.csproj", "{FBAC3FA5-BA95-4C94-96CF-E80F745FD399}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{DBEA4483-0E04-41D9-AD4E-7E61268E76D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DBEA4483-0E04-41D9-AD4E-7E61268E76D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DBEA4483-0E04-41D9-AD4E-7E61268E76D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FBAC3FA5-BA95-4C94-96CF-E80F745FD399}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBAC3FA5-BA95-4C94-96CF-E80F745FD399}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBAC3FA5-BA95-4C94-96CF-E80F745FD399}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBAC3FA5-BA95-4C94-96CF-E80F745FD399}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
