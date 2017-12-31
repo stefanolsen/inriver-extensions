@@ -7,8 +7,8 @@
     <ProjectGuid>{99730F4E-9FBB-4A0D-B98E-0FDD9640411D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>InRiver.TableLookupExtension</RootNamespace>
-    <AssemblyName>InRiver.TableLookupExtension</AssemblyName>
+    <RootNamespace>InRiver.TableLookup</RootNamespace>
+    <AssemblyName>InRiver.TableLookup</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -67,11 +67,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ColorGroup.cs" />
     <Compile Include="ColorGroupExtension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TableLookupExtension.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
