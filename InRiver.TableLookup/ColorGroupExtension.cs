@@ -156,10 +156,10 @@ namespace InRiver.TableLookup
                     return;
                 }
 
-                // For each linked item call the entity updated method (simulating an update item).
+                // For each of the item entities, update the color group.
                 foreach (Entity itemEntity in itemEntities)
                 {
-                    EntityUpdated(itemEntity.Id, new[] { ColorIdFieldTypeId });
+                    UpdateColorGroup(entity, itemEntity);
                 }
             }
         }
@@ -306,6 +306,16 @@ namespace InRiver.TableLookup
 
         private void UpdateColorGroup(Entity productEntity, Entity itemEntity)
         {
+            if (productEntity.LoadLevel == LoadLevel.Shallow)
+            {
+                productEntity = Context.ExtensionManager.DataService.GetEntity(productEntity.Id, LoadLevel.DataOnly);
+            }
+
+            if (itemEntity.LoadLevel == LoadLevel.Shallow)
+            {
+                itemEntity = Context.ExtensionManager.DataService.GetEntity(itemEntity.Id, LoadLevel.DataOnly);
+            }
+
             string brandName = productEntity.GetField(BrandFieldTypeId)?.Data as string;
             string colorId = itemEntity.GetField(ColorIdFieldTypeId)?.Data as string;
 
