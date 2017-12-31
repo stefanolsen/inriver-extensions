@@ -14,6 +14,7 @@ namespace InRiver.TableLookup
     public class ColorGroupExtension : IEntityListener, ILinkListener
     {
         private const string KeyItemEntityTypeId = "ITEM_ENTITY_TYPE_ID";
+        private const string KeyProductEntityTypeId = "PRODUCT_ENTITY_TYPE_ID";
         private const string KeyProductItemLinkTypeId = "PRODUCTITEM_LINK_TYPE_ID";
         private const string KeyBrandFieldTypeId = "BRAND_FIELD_TYPE_ID";
         private const string KeyColorIdFieldTypeId = "COLORID_FIELD_TYPE_ID";
@@ -26,6 +27,7 @@ namespace InRiver.TableLookup
         public Dictionary<string, string> DefaultSettings => new Dictionary<string, string>
         {
             { KeyItemEntityTypeId, "Item" },
+            { KeyProductEntityTypeId, "Product" },
             { KeyProductItemLinkTypeId, "ProductItem" },
             { KeyBrandFieldTypeId, "ProductBrand" },
             { KeyColorIdFieldTypeId, "ItemColorId" },
@@ -35,6 +37,7 @@ namespace InRiver.TableLookup
         };
 
         private string ItemEntityTypeId => GetSettingOrDefault(KeyItemEntityTypeId);
+        private string ProductEntityTypeId => GetSettingOrDefault(KeyProductEntityTypeId);
         private string ProductItemLinkTypeId => GetSettingOrDefault(KeyProductItemLinkTypeId);
 
         private string BrandFieldTypeId => GetSettingOrDefault(KeyBrandFieldTypeId);
@@ -138,7 +141,7 @@ namespace InRiver.TableLookup
 
                 UpdateColorGroup(productEntity, entity);
             }
-            else if (entityType.Id == ProductItemLinkTypeId)
+            else if (entityType.Id == ProductEntityTypeId)
             {
                 // If the entity is a product entity.
                 Entity[] itemEntities = entity.OutboundLinks
