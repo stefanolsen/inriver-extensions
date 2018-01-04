@@ -333,14 +333,12 @@ namespace InRiver.TableLookup
             {
                 // If no color group was found.
                 Context.Log(LogLevel.Warning, "No color group was found.");
-
-                return;
             }
 
             object colorGroupFieldData = colorGroupField.Data;
 
-            // Set the color group CVL key and save the entity.
-            colorGroupField.Data = colorGroup.CvlKey;
+            // Set the color group CVL key (or null if it does not exist) and save the entity.
+            colorGroupField.Data = colorGroup?.CvlKey;
 
             if (!colorGroupField.ValueHasBeenModified(colorGroupFieldData))
             {
