@@ -32,12 +32,12 @@ namespace InRiver.ImageAnalyzer.Tests
             {
                 Settings = new Dictionary<string, string>
                 {
-                    { "ITEM_ENTITY_TYPE_ID", "Item" },
-                    { "PRODUCT_ENTITY_TYPE_ID", "Product" },
-                    { "PRODUCTITEM_LINK_TYPE_ID", "ProductItem" },
-                    { "BRAND_FIELD_TYPE_ID", "ProductBrand" },
-                    { "COLORID_FIELD_TYPE_ID", "ItemColorId" },
-                    { "TABLE_NAME", "ColorGroups" }
+                    { "AZURE_APIKEY", "" },
+                    { "AZURE_ENDPOINT_URL", "" },
+                    { "RESOURCE_ENTITY_TYPE_ID", "Resource" },
+                    { "RESOURCE_FILEID_FIELD_ID", "ResourceFileId" },
+                    { "RESOURCE_TYPE_FIELD_ID", "ResourceType" },
+                    { "INCLUDED_RESOURCE_TYPES", "default,carousel" }
                 }
             };
 
