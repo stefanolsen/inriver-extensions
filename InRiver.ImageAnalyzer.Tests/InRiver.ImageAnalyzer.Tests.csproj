@@ -72,6 +72,10 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="FakeDataService.cs" />
+    <Compile Include="FakeInRiverManager.cs" />
+    <Compile Include="FakeModelService.cs" />
+    <Compile Include="FakeUtilityService.cs" />
     <Compile Include="ImageAnalyzerExtensionTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="XUnitLogger.cs" />

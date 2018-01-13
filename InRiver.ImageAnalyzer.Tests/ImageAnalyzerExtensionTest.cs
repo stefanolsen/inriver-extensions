@@ -25,19 +25,38 @@ namespace InRiver.ImageAnalyzer.Tests
             extension.Context.Log(LogLevel.Debug, result);
         }
 
+        [Fact]
+        public void TestResourceEntityUpdated_WithResourceFileIdField()
+        {
+            IEntityListener extension = CreateExtension();
+
+            extension.EntityUpdated(1, new[] { "ResourceFileId" });
+        }
+
+        [Fact]
+        public void TestResourceEntityUpdated_WithResourceTypeField()
+        {
+            IEntityListener extension = CreateExtension();
+
+            extension.EntityUpdated(1, new[] { "ResourceType" });
+        }
+
         private ImageAnalyzerExtension CreateExtension()
         {
             var extension = new ImageAnalyzerExtension();
-            extension.Context = new inRiverContext(null, new XUnitLogger(_outputHelper))
+            extension.Context = new inRiverContext(new FakeInRiverManager(), new XUnitLogger(_outputHelper))
             {
                 Settings = new Dictionary<string, string>
                 {
                     { "AZURE_APIKEY", "" },
                     { "AZURE_ENDPOINT_URL", "" },
                     { "RESOURCE_ENTITY_TYPE_ID", "Resource" },
+                    { "RESOURCE_CAPTION_FIELD_ID", "ResourceCaption" },
                     { "RESOURCE_FILEID_FIELD_ID", "ResourceFileId" },
+                    { "RESOURCE_TAGS_FIELD_ID", "ResourceTags" },
                     { "RESOURCE_TYPE_FIELD_ID", "ResourceType" },
-                    { "INCLUDED_RESOURCE_TYPES", "default,carousel" }
+                    { "ADD_UNKNOWN_CVL_VALUES", "true" },
+                    { "TAGS_MINIMUM_CONFICENDE", "0.5" }
                 }
             };
 
