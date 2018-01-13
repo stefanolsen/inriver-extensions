@@ -56,9 +56,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AnalyzeImageResponse.cs" />
+    <Compile Include="Models\AnalyzeImageResponse.cs" />
+    <Compile Include="Models\Color.cs" />
+    <Compile Include="Models\Caption.cs" />
+    <Compile Include="Models\Description.cs" />
     <Compile Include="ImageAnalyzerExtension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Models\TagItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
