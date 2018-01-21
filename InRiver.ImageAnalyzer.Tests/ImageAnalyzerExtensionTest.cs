@@ -54,7 +54,6 @@ namespace InRiver.ImageAnalyzer.Tests
                     { "RESOURCE_CAPTION_FIELD_ID", "ResourceCaption" },
                     { "RESOURCE_FILEID_FIELD_ID", "ResourceFileId" },
                     { "RESOURCE_TAGS_FIELD_ID", "ResourceTags" },
-                    { "RESOURCE_TYPE_FIELD_ID", "ResourceType" },
                     { "ADD_UNKNOWN_CVL_VALUES", "true" },
                     { "TAGS_MINIMUM_CONFICENDE", "0.5" }
                 }

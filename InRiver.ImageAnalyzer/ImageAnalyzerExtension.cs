@@ -22,7 +22,6 @@ namespace InRiver.ImageAnalyzer
         private const string KeyResourceEntityTypeId = "RESOURCE_ENTITY_TYPE_ID";
         private const string KeyResourceCaptionFieldId = "RESOURCE_CAPTION_FIELD_ID";
         private const string KeyResourceFileIdFieldId = "RESOURCE_FILEID_FIELD_ID";
-        private const string KeyResourceTypeFieldId = "RESOURCE_TYPE_FIELD_ID";
         private const string KeyResourceTagsFieldId = "RESOURCE_TAGS_FIELD_ID";
         private const string KeyAddUnknownCvlValues = "ADD_UNKNOWN_CVL_VALUES";
         private const string KeyTagsMinimumConfidence = "TAGS_MINIMUM_CONFICENDE";
@@ -39,7 +38,6 @@ namespace InRiver.ImageAnalyzer
             { KeyResourceFileIdFieldId, "ResourceFileId" },
             { KeyResourceCaptionFieldId, "ResourceCaption" },
             { KeyResourceTagsFieldId, "ResourceTags" },
-            { KeyResourceTypeFieldId, "ResourceType" },
             { KeyAddUnknownCvlValues, "true" },
             { KeyTagsMinimumConfidence, "0.5" }
         };
@@ -50,7 +48,6 @@ namespace InRiver.ImageAnalyzer
         private string ResourceCaptionFieldId => GetSettingOrDefault(KeyResourceCaptionFieldId);
         private string ResourceFileIdFieldId => GetSettingOrDefault(KeyResourceFileIdFieldId);
         private string ResourceTagsFieldId => GetSettingOrDefault(KeyResourceTagsFieldId);
-        private string ResourceTypeFieldId => GetSettingOrDefault(KeyResourceTypeFieldId);
         private bool AddUnknownCvlValues => GetBooleanSetting(KeyAddUnknownCvlValues);
         private decimal MinimumConfidence => GetDecimalSetting(KeyTagsMinimumConfidence);
 
@@ -308,11 +305,6 @@ namespace InRiver.ImageAnalyzer
 
             if (string.IsNullOrWhiteSpace(KeyResourceFileIdFieldId)) {
                 Context.Log(LogLevel.Error, $"The setting '{KeyResourceFileIdFieldId}' is empty.");
-                valid = false;
-            }
-
-            if (string.IsNullOrWhiteSpace(KeyResourceTypeFieldId)) {
-                Context.Log(LogLevel.Error, $"The setting '{KeyResourceTypeFieldId}' is empty.");
                 valid = false;
             }
 
