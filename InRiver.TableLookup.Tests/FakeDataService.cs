@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 using inRiver.Remoting;
 using inRiver.Remoting.Objects;
 using inRiver.Remoting.Query;
@@ -24,10 +25,12 @@ namespace InRiver.TableLookup.Tests
                         {
                             new Field
                             {
+                                EntityId = 1,
                                 FieldType = new FieldType("ItemColorGroup", "Item", DataType.CVL, "Appearance")
                             },
                             new Field
                             {
+                                EntityId = 1,
                                 FieldType = new FieldType("ItemColorId", "Item", DataType.String, "Appearance"),
                                 Data = "057"
                             }
@@ -43,6 +46,7 @@ namespace InRiver.TableLookup.Tests
                         {
                             new Field
                             {
+                                EntityId = 2,
                                 FieldType = new FieldType("ProductBrand", "Product", DataType.CVL, "General"),
                                 Data = "mckinley"
                             }
@@ -98,7 +102,32 @@ namespace InRiver.TableLookup.Tests
 
         public Entity UpdateFieldsForEntity(List<Field> fields)
         {
-            throw new NotImplementedException();
+            if (fields == null || fields.Count == 0)
+            {
+                return null;
+            }
+
+            Field firstField = fields.First();
+            int entityId = firstField.EntityId;
+
+            if (!_entities.TryGetValue(entityId, out Entity entity))
+            {
+                return null;
+            }
+
+            foreach (var updatedField in fields)
+            {
+                Field existingField = entity.GetField(updatedField.FieldType.Id);
+                if (existingField == null)
+                {
+                    continue;
+                }
+
+                existingField.Data = updatedField.Data;
+                existingField.LastModified = updatedField.LastModified;
+            }
+
+            return entity;
         }
 
         public Field GetField(int entityId, string fieldTypeId)

@@ -164,7 +164,7 @@ namespace InRiver.ImageAnalyzer
                 return;
             }
 
-            bool modified = false;
+            var modifiedFields = new List<Field>(2);
 
             Field tagsField = resourceEntity.GetField(ResourceTagsFieldId);
             if (tagsField != null)
@@ -177,7 +177,7 @@ namespace InRiver.ImageAnalyzer
 
                 IEnumerable<string> tagCvlValues = GetCvlValues(tagsField.FieldType, tagNames);
                 tagsField.Data = string.Join(";", tagCvlValues);
-                modified = true;
+                modifiedFields.Add(tagsField);
             }
 
             Field captionField = resourceEntity.GetField(ResourceCaptionFieldId);
@@ -191,15 +191,15 @@ namespace InRiver.ImageAnalyzer
                     .FirstOrDefault();
 
                 captionField.Data = captionText;
-                modified = true;
+                modifiedFields.Add(captionField);
             }
 
-            if (!modified)
+            if (modifiedFields.Count == 0)
             {
                 return;
             }
 
-            Context.ExtensionManager.DataService.UpdateEntity(resourceEntity);
+            Context.ExtensionManager.DataService.UpdateFieldsForEntity(modifiedFields);
         }
 
         private async Task<AnalyzeImageResponse> AnalyzeImage(byte[] fileContent)

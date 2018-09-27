@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 using inRiver.Remoting;
 using inRiver.Remoting.Objects;
 using inRiver.Remoting.Query;
@@ -10,7 +11,6 @@ namespace InRiver.ImageAnalyzer.Tests
     internal class FakeDataService : IDataService
     {
         private readonly Dictionary<int, Entity> _entities;
-        private readonly Dictionary<int, List<Link>> _links;
 
         public FakeDataService()
         {
@@ -24,22 +24,29 @@ namespace InRiver.ImageAnalyzer.Tests
                         {
                             new Field
                             {
+                                EntityId = 1,
                                 FieldType = new FieldType("ResourceCaption", "Resource", DataType.String, "Content"),
                                 Data = null
                             },
                             new Field
                             {
+                                EntityId = 1,
                                 FieldType = new FieldType("ResourceFileId", "Resource", DataType.Integer, "Content"),
                                 Data = 10
                             },
                             new Field
                             {
+                                EntityId = 1,
                                 FieldType = new FieldType("ResourceType", "Resource", DataType.CVL, "Content"),
                                 Data = "default"
                             },
                             new Field
                             {
-                                FieldType = new FieldType("ResourceTags", "Resource", DataType.CVL, "Content"){ CVLId = "ResourceTags"},
+                                EntityId = 1,
+                                FieldType = new FieldType("ResourceTags", "Resource", DataType.CVL, "Content")
+                                {
+                                    CVLId = "ResourceTags"
+                                },
                                 Data = null
                             }
                         },
@@ -76,7 +83,32 @@ namespace InRiver.ImageAnalyzer.Tests
 
         public Entity UpdateFieldsForEntity(List<Field> fields)
         {
-            throw new NotImplementedException();
+            if (fields == null || fields.Count == 0)
+            {
+                return null;
+            }
+
+            Field firstField = fields.First();
+            int entityId = firstField.EntityId;
+
+            if (!_entities.TryGetValue(entityId, out Entity entity))
+            {
+                return null;
+            }
+
+            foreach (var updatedField in fields)
+            {
+                Field existingField = entity.GetField(updatedField.FieldType.Id);
+                if (existingField == null)
+                {
+                    continue;
+                }
+
+                existingField.Data = updatedField.Data;
+                existingField.LastModified = updatedField.LastModified;
+            }
+
+            return entity;
         }
 
         public Field GetField(int entityId, string fieldTypeId)

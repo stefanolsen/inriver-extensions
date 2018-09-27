@@ -348,7 +348,9 @@ namespace InRiver.TableLookup
                 return;
             }
 
-            Context.ExtensionManager.DataService.UpdateEntity(itemEntity);
+            var modifiedFields = new List<Field>(1) {colorGroupField};
+
+            Context.ExtensionManager.DataService.UpdateFieldsForEntity(modifiedFields);
 
             Context.Log(LogLevel.Information, $"The color group (on {itemEntity}) was succesfully updated.");
         }
