@@ -466,6 +466,11 @@ namespace InRiver.TableLookup.Tests
             throw new NotImplementedException();
         }
 
+        public List<CompletenessRuleSetting> GetAllCompletenessRuleSettingsForBusinessRule(int businessRuleId)
+        {
+            throw new NotImplementedException();
+        }
+
         public bool DeleteCompletenessBusinessRuleForGroup(int ruleId, int groupId)
         {
             throw new NotImplementedException();

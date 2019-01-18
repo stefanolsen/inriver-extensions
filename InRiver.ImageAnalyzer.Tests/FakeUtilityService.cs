@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using inRiver.Remoting;
 using inRiver.Remoting.Connect;
@@ -59,6 +57,11 @@ namespace InRiver.ImageAnalyzer.Tests
             throw new NotImplementedException();
         }
 
+        public int AddFileFromUrl(string fileName, string url)
+        {
+            throw new NotImplementedException();
+        }
+
         public bool DeleteFile(int id)
         {
             throw new NotImplementedException();
@@ -73,6 +76,11 @@ namespace InRiver.ImageAnalyzer.Tests
         {
             return File.ReadAllBytes(@"C:\temp\stefan_holm_olsen.jpg");
             //return File.ReadAllBytes(@"C:\temp\stefan_holm_olsen.jpg");
+        }
+
+        public bool DeleteResourceFile(int id)
+        {
+            throw new NotImplementedException();
         }
 
         public ResourceFile GetFileMetaData(int id)
@@ -96,6 +104,21 @@ namespace InRiver.ImageAnalyzer.Tests
         }
 
         public void ClearImageCache(int resourceFileId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public ResourceFile AddResourceFile(ResourceFile resourceFile)
+        {
+            throw new NotImplementedException();
+        }
+
+        public ResourceFile UpdateResourceFile(ResourceFile resourceFile)
+        {
+            throw new NotImplementedException();
+        }
+
+        public ResourceFile GetResourceFile(int id)
         {
             throw new NotImplementedException();
         }
@@ -261,6 +284,11 @@ namespace InRiver.ImageAnalyzer.Tests
         }
 
         public bool DeleteSharedWorkAreaFolder(Guid id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public WorkAreaFolder UpdateSharedWorkAreaSyndication(Guid id, bool isSyndication)
         {
             throw new NotImplementedException();
         }
